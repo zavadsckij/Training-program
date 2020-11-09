@@ -1,0 +1,137 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0 15px;
+  background-image: url(./img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  overflow: scroll;
+}
+
+#root{
+  height:100%;
+}
+
+.app{
+  height:100%;
+  overflow: scroll;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+}
+.header nav{
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+nav ul{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+nav ul li{
+  margin: 0 10px;
+}
+
+a{
+  color:#fff;
+  font-size: inherit;
+  line-height: inherit;
+}
+button{
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  color:#fff;
+  font-size: inherit;
+  line-height: inherit;
+}
+input{
+  text-align: center;
+  color: #000;
+background-color: #fff;
+opacity: .8;
+}
+ul{
+  font-size: 18px;
+  list-style: none;
+  margin: 2em 0;
+  padding: 0;
+}
+li{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+h1{
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  line-height: 4em;
+}
+label{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+input{
+  padding: 5px;
+  margin-bottom: 10px;
+}
+textarea{
+  height: 5em;
+  margin: 1em 0;
+}
+.records-form{
+  display: flex;
+  flex-direction: column;
+
+}
+.records-form-button{
+  width: 30%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.loader{
+  width: 50%;
+  position: absolute;
+  top:50%;
+  left:25%;
+  transform: translateY(-50%);
+  background-color: transparent;
+}
+.home-form{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.training{
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.logo{
+  height: 50px;
+}
+
+.login{
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
