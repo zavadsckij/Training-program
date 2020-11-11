@@ -15,7 +15,13 @@ import loader from './img/loader.gif'
 import Header from './components/Header';
 
 const firebaseConfig = {
-  config:"some config"
+  apiKey: "key",
+  authDomain: "domain",
+  databaseURL: "https://url",
+  projectId: "id",
+  storageBucket: "bucket",
+  messagingSenderId: "id",
+  appId: "appId"
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig)
@@ -27,7 +33,7 @@ export const firebaseApp = firebase.initializeApp(firebaseConfig)
 
 function App({isInit, users, isFetching, getUsersFromAPI, setInit, admin}) {
 useEffect(()=>{
-    getUsersFromAPI()
+  getUsersFromAPI()
 },[])
   return ( 
   < BrowserRouter >

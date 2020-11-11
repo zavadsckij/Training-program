@@ -26,7 +26,7 @@ function Users({users, setCurrentUser, addUser, isFetching}) {
             }) : "no users"}
             </ul>
             {addMode?
-            <form  onSubmit = {(e)=>{ addNewUser(e); }} >
+            <form  onSubmit = {(e)=>{ addNewUser(e); }} className = 'addUsers__form'>
             <input  type="text" value = {newUser} placeholder='введите имя' className = 'form__text-input' onChange={(e)=>{setUser(e.target.value)}}/>
             <input type="submit" value = 'add user' className = 'form__submit-input'/>
         </form>: <button onClick = {()=>{setAddMode(true)}}>Add User</button>

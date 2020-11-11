@@ -9,6 +9,11 @@ const SET__ADMIN = "SET__ADMIN";
 const SET__FETCHING = "SET__FETCHING";
 const SET__LOAD = "SET__LOAD";
 
+const instance = axios.create({
+  baseURL: 'https://training-program-40a94.firebaseio.com/',
+  timeout: 10000
+});
+
 let initialState = {
   users: [],
   currentUser: {},
@@ -95,11 +100,15 @@ export let getUsers = (users) => ({ type: GET__USERS, users });
 export const getUsersFromAPI = () => {
   return (dispatch) => {
     setFetching(true);
-    axios
-      .get("https://training-program-40a94.firebaseio.com/users.json")
+    instance
+      .get("users.json")
       .then((response) => {
         dispatch(getUsers(response.data))
         dispatch(setFetching(false))
+      })
+      .catch(err => {
+        dispatch(setFetching(false))
+        alert (err.message)
       });
   };
 };
@@ -111,7 +120,7 @@ export let addUser = (userName, users) => {
       program: [
         {
           title: "первая тренировка",
-          data: new Date().toLocaleDateString(),
+          date: new Date().toLocaleDateString(),
           body: "упражнения",
         },
       ],
@@ -124,67 +133,89 @@ export let addUser = (userName, users) => {
         рука: "0",
       },
     };
-    users.push(user);
+    const newUsers = JSON.parse(JSON.stringify(users));
+    newUsers.push(user)
+
     dispatch(setFetching(true));
-    axios
-      .put("https://training-program-40a94.firebaseio.com/users.json", users)
+    instance
+      .put("users.json", newUsers)
       .then((response) => {
         dispatch(getUsers(Object.values(response.data)));
         dispatch(setFetching(false));
+      })
+      .catch(err => {
+        dispatch(setFetching(false))
+        alert (err.message)
       });
   };
 };
 export let removeUser = (users) => {
   return (dispatch) => {
     dispatch(setFetching(true));
-    axios
-      .put(`https://training-program-40a94.firebaseio.com/users.json`, users)
+    instance
+      .put(`users.json`, users)
       .then((response) => {
         dispatch(getUsers(Object.values(response.data)));
         dispatch(setFetching(false));
+      })
+      .catch(err => {
+        dispatch(setFetching(false))
+        alert (err.message)
       });
   };
 };
 export let addTraining = (trainingList, url) => {
   return (dispatch) => {
     dispatch(setFetching(true));
-    axios
+    instance
       .put(
-        `https://training-program-40a94.firebaseio.com/users/${url}.json`,
+        `users/${url}.json`,
         trainingList
       )
       .then((response) => {
         dispatch(setTrainingList(response.data));
         dispatch(setFetching(false));
+      })
+      .catch(err => {
+        dispatch(setFetching(false))
+        alert (err.message)
       });
   };
 };
 export let addRecord = (recordsList, url) => {
   return (dispatch) => {
     dispatch(setFetching(true));
-    axios
+    instance
       .put(
-        `https://training-program-40a94.firebaseio.com/users/${url}.json`,
+        `users/${url}.json`,
         recordsList
       )
       .then((response) => {
         dispatch(addRecordToList(response.data));
         dispatch(setFetching(false));
+      })
+      .catch(err => {
+        dispatch(setFetching(false))
+        alert (err.message)
       });
   };
 };
 export let addSize = (size, url) => {
   return (dispatch) => {
     dispatch(setFetching(true));
-    axios
+    instance
       .put(
-        `https://training-program-40a94.firebaseio.com/users/${url}.json`,
+        `users/${url}.json`,
         size
       )
       .then((response) => {
         dispatch(setUserSize(response.data));
         dispatch(setFetching(false));
-      });
+      })
+      .catch(err => {
+        dispatch(setFetching(false))
+        alert (err.message)
+      })
   };
 };
 

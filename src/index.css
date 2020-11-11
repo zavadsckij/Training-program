@@ -20,6 +20,8 @@ body {
 .app{
   height:100%;
   overflow: scroll;
+  padding-bottom: 50px;
+  padding-right: 5px;
 }
 
 .header{
@@ -134,4 +136,10 @@ code {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.addUsers__form{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

@@ -38,6 +38,7 @@ const Home = ({isInit, setInit, setAdmin}) =>{
         if(password.trim() && email.trim()){
             firebaseApp.auth().signInWithEmailAndPassword(email, password)
             .then((response)=>{
+              console.log(response)
                 setInit(true)
                 setAdmin(response.user.email)
             })

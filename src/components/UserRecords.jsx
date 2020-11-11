@@ -26,7 +26,7 @@ const UserRecords = (props) =>{
 }
     return <div onDoubleClick = {()=>{ setAddMode(false)}}>
         {addMode?
-       <form  onSubmit = {(e)=>{ addNewRecord(e); }}  style ={{'display':'block'}} >  
+       <form  onSubmit = {(e)=>{ addNewRecord(e); }} className = 'addUsers__form'>  
        <input  type="text" value = {record} placeholder='введите рекорд' className = 'form__text-input' onChange={(e)=>{setRecord(e.target.value)}}/>
        <input type="submit" value = 'submit' className = 'form__submit-input'/>
    </form>:<button onClick = {()=>{setAddMode(true)}}>add record</button>}
